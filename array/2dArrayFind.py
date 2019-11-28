@@ -12,6 +12,8 @@
 '''
 
 # -*- coding:utf-8 -*-
+# 解法1：直接遍历
+#时间复杂度：O（n^2) 空间复杂度：O（1）
 class Solution:
     # array 二维列表
     def Find(self, target, array):
@@ -22,10 +24,62 @@ class Solution:
                     return True
         return False
 
+#解法2：从左下开始找：对于左下角值m，m是该行最小值+该列最大值，
+#if m<traget: 剔除这一行
+#if m>target: 剔除这一列
+#时间复杂度：O（行数+列数） 空间复杂度：O（1）
+class Solution:
+    # array 二维列表
+    def Find(self, target, array):
+        # write code here
+        rows = len(array)
+        cols = len(array[0])
+
+        row = rows-1
+        col = 0
+
+        while(row > -1 and col < cols):
+            if (array[row][col] < target):
+                col += 1
+            elif (array[row][col] > target):
+                row -= 1
+            else:
+                return True
+
+        return False
+
+# 解法3：遍历每行，二分查找
+#时间复杂度：O（n*logn) 空间复杂度：O（1）
+class Solution:
+    # array 二维列表
+    def Find(self, target, array):
+        # write code here
+        rows = len(array)
+        cols = len(array[0])
+
+        for i in range(rows):
+            low = 0
+            high = cols-1
+
+            while(low <= high):
+                mid = int((low + high) / 2)
+                print(array[i][mid])
+                if (target > array[i][mid]):
+                    low = mid+1
+                elif (target < array[i][mid]):
+                    high = mid-1
+                else:
+                    return True
+
+        return False
+
+
+
 #输入array是list,不是np.array，所以没有shape属性
-#array的维度如何获取
+#array的维度如何获取?
+#二分查找
 
 
 if __name__ == '__main__':
     arr = Solution()
-    print(arr.Find(7,[[1,2,8,9],[2,4,9,12],[4,7,10,13],[6,8,11,15]]))
+    print(arr.Find(1,[[1,2,8,9],[2,4,9,12],[4,7,10,13],[6,8,11,15]]))
