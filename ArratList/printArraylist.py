@@ -17,12 +17,19 @@ class Solution:
     # 返回从尾部到头部的列表值序列，例如[1,2,3]
     def printListFromTailToHead(self, listNode):
         # write code here
-        arr = []
-        while listNode.next != None:
-            arr.append(listNode.val)
-            next = listNode.next
-        return arr
+       if listNode == None:
+           return []
+       return self.printListFromTailToHead(listNode.next) + listNode.val
 
 if __name__ == '__main__':
-    a_lst = ListNode(3)
-    print(lst.next)
+    # a = ListNode([3])
+    # b = ListNode([4])
+    # c = ListNode([5])
+    # a.next = b
+    # b.next = c
+    a={}
+
+    l = Solution()
+    arr = l.printListFromTailToHead(a)
+
+    print(arr)
