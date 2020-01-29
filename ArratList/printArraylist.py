@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # @Time    : 2019/12/1 18:23
 # @Author  : wenlei
