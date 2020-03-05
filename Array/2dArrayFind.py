@@ -16,7 +16,7 @@
 # 解法1：直接遍历
 #时间复杂度：O（n^2) 空间复杂度：O（1）
 class Solution:
-    # array 二维列表
+    # Array 二维列表
     def Find(self, target, array):
         # write code here
         for i in range(len(array)):
@@ -30,7 +30,7 @@ class Solution:
 #if m>target: 剔除这一列
 #时间复杂度：O（行数+列数） 空间复杂度：O（1）
 class Solution:
-    # array 二维列表
+    # Array 二维列表
     def Find(self, target, array):
         # write code here
         rows = len(array)
@@ -52,7 +52,7 @@ class Solution:
 # 解法3：遍历每行，二分查找
 #时间复杂度：O（n*logn) 空间复杂度：O（1）
 class Solution:
-    # array 二维列表
+    # Array 二维列表
     def Find(self, target, array):
         # write code here
         rows = len(array)
@@ -76,7 +76,7 @@ class Solution:
 
 
 
-#输入array是list,不是np.array，所以没有shape属性
+#输入array是list,不是np.Array，所以没有shape属性
 #array的维度如何获取?
 #二分查找
 

@@ -23,7 +23,7 @@ class Solution:
         if not pre or not tin: #判断list、tuple、dict是否为空
             return None
         root = TreeNode(pre.pop(0)) #pop(key):删除字典给定键 key 及对应的值，返回值为被删除的值。
-        index = tin.index(root.val) #index(str):返回str所处的index
+        index = tin.index(root.val) #index(Str):返回str所处的index
         root.left = self.reConstructBinaryTree(pre, tin[:index])
         root.right = self.reConstructBinaryTree(pre, tin[index + 1:])
         return root
