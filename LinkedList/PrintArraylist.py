@@ -3,9 +3,8 @@
 # @Time    : 2019/12/1 18:23
 # @Author  : wenlei
 
-#链表：从尾到头打印链表
+'''链表：从尾到头打印链表
 
-'''
 输入一个链表，按链表从尾到头的顺序返回一个ArrayList。
 '''
 
@@ -20,17 +19,15 @@ class Solution:
         # write code here
        if listNode == None:
            return []
-       return self.printListFromTailToHead(listNode.next) + listNode.val
+       return self.printListFromTailToHead(listNode.next) + [listNode.val]
 
 if __name__ == '__main__':
-    # a = ListNode([3])
-    # b = ListNode([4])
-    # c = ListNode([5])
-    # a.next = b
-    # b.next = c
-    a={}
+    a = ListNode(3)
+    b = ListNode(4)
+    c = ListNode(5)
+    a.next = b
+    b.next = c
 
-    l = Solution()
-    arr = l.printListFromTailToHead(a)
-
-    print(arr)
+    X = Solution()
+    result = X.printListFromTailToHead(a)
+    print(result)
