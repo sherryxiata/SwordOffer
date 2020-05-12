@@ -10,8 +10,7 @@
 
 ###思路：
 #当插入时，直接插入 stack1。
-#当弹出时，如果 stack2 不为空，弹出 stack2 栈顶元素，如果 stack2 为空，将 stack1 中的全部数逐个出栈入栈 stack2，再弹出 stack2 栈顶元素
-
+#当弹出时，先将stack1的元素push入stack2，再pop stack2
 class Solution:
     def __init__(self):
         self.stack1 = []
@@ -23,28 +22,30 @@ class Solution:
 
     def pop(self):
         # return xx
-        if self.stack2:
-            return self.stack2.pop()
-        elif not self.stack1:
-            return None
-        else:
+        if not self.stack2:
             while self.stack1:
                 self.stack2.append(self.stack1.pop())
-            return self.stack2.pop()
+        if not self.stack2:
+            return None
+        return self.stack2.pop()
 
 if __name__ == '__main__':
     test = Solution()
 
     test.push(1)
-    test.push(2)
-    test.push(3)
-    test.push(4)
-    test.push(5)
+    print(test.pop())
+    print(test.pop())
 
-    print(test.pop())
-    print(test.pop())
-    print(test.pop())
-    print(test.pop())
-    print(test.pop())
+    # test.push(1)
+    # test.push(2)
+    # test.push(3)
+    # test.push(4)
+    # test.push(5)
+    #
+    # print(test.pop())
+    # print(test.pop())
+    # print(test.pop())
+    # print(test.pop())
+    # print(test.pop())
 
 

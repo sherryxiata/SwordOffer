@@ -13,13 +13,38 @@ class ListNode:
         self.val = x
         self.next = None
 
+# #解法1：递归
+# class Solution:
+#     # 返回从尾部到头部的列表值序列，例如[1,2,3]
+#     def printListFromTailToHead(self, listNode):
+#         # write code here
+#        if listNode == None:
+#            return []
+#        return self.printListFromTailToHead(listNode.next) + [listNode.val]
+
+#解法2：使用头插法重建逆序链表
 class Solution:
     # 返回从尾部到头部的列表值序列，例如[1,2,3]
     def printListFromTailToHead(self, listNode):
         # write code here
-       if listNode == None:
-           return []
-       return self.printListFromTailToHead(listNode.next) + [listNode.val]
+        if listNode == None:
+            return []
+
+        head = ListNode(-1) #辅助头节点，方便插入
+        while listNode != None:
+            memo = listNode.next
+            listNode.next = head.next
+            head.next = listNode
+            listNode = memo
+
+        res = []
+        head = head.next
+        while head != None:
+            res.append(head.val)
+            head = head.next
+        return res
+
+#解法3：在遍历链表时将值放入栈，再pop即为逆序。但是python没有栈
 
 if __name__ == '__main__':
     a = ListNode(3)

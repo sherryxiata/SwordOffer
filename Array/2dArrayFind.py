@@ -18,15 +18,15 @@
 时间复杂度：O（n^2) 空间复杂度：O（1）
 '''
 
-class Solution:
-    # Array 二维列表
-    def Find(self, target, array):
-        # write code here
-        for i in range(len(array)):
-            for j in range(len(array[i])):
-                if(array[i][j] == target):
-                    return True
-        return False
+# class Solution:
+#     # Array 二维列表
+#     def Find(self, target, array):
+#         # write code here
+#         for i in range(len(array)):
+#             for j in range(len(array[i])):
+#                 if(array[i][j] == target):
+#                     return True
+#         return False
 
 '''解法2：从左下开始找：对于左下角值m，m是该行最小值+该列最大值，
 if m<traget: 剔除这一行
@@ -37,6 +37,9 @@ class Solution:
     # array 二维列表
     def Find(self, target, array):
         # write code here
+        if not array or len(array) == 0 or len(array[0]) == 0:
+            return False
+
         m = len(array) #行数
         n = len(array[0]) #列数
 
@@ -55,34 +58,35 @@ class Solution:
                 return True
         return False
 
-'''解法3：遍历每行，二分查找
-时间复杂度：O（n*logn) 空间复杂度：O（1）
-'''
-class Solution:
-    # array 二维列表
-    def Find(self, target, array):
-        # write code here
-        m = len(array) #行数
-        n = len(array[0]) #列数
-
-        for i in range(m):
-            low = 0
-            high = n-1
-
-            while(low <= high):
-                mid = int((low + high) / 2)
-                if target > array[i][mid]:
-                    low = mid + 1
-                elif target < array[i][mid]:
-                    high = mid -1
-                else:
-                    return True
-        return False
+# '''解法3：遍历每行，二分查找
+# 时间复杂度：O（n*logn) 空间复杂度：O（1）
+# '''
+# class Solution:
+#     # array 二维列表
+#     def Find(self, target, array):
+#         # write code here
+#         m = len(array) #行数
+#         n = len(array[0]) #列数
+#
+#         for i in range(m):
+#             low = 0
+#             high = n-1
+#
+#             while(low <= high):
+#                 mid = int((low + high) / 2)
+#                 if target > array[i][mid]:
+#                     low = mid + 1
+#                 elif target < array[i][mid]:
+#                     high = mid -1
+#                 else:
+#                     return True
+#         return False
 
 
 if __name__ == '__main__':
     X = Solution()
     target = 3
-    array = [[1, 2, 3], [4, 5, 6]]
+    # array = [[1, 2, 3], [4, 5, 6]]
+    array = []
     result = X.Find(target, array)
     print(result)
