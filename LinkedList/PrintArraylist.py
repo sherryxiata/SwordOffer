@@ -13,14 +13,14 @@ class ListNode:
         self.val = x
         self.next = None
 
-# #解法1：递归
-# class Solution:
-#     # 返回从尾部到头部的列表值序列，例如[1,2,3]
-#     def printListFromTailToHead(self, listNode):
-#         # write code here
-#        if listNode == None:
-#            return []
-#        return self.printListFromTailToHead(listNode.next) + [listNode.val]
+#解法1：递归
+class Solution:
+    # 返回从尾部到头部的列表值序列，例如[1,2,3]
+    def printListFromTailToHead(self, listNode):
+        # write code here
+       if listNode == None:
+           return []
+       return self.printListFromTailToHead(listNode.next) + [listNode.val]
 
 #解法2：使用头插法重建逆序链表
 class Solution:
